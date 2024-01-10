@@ -1,6 +1,5 @@
 import React from 'react';
 import  Link from 'next/link';
-
 const posts = [
     { name: 'Post 1', path: '/posts/1' },
     { name: 'Post 2', path: '/posts/2' },
@@ -12,7 +11,11 @@ export default function Posts() {
       <div className="posts">
         <h1>Post List</h1>
         <ul>
-          {/* Render a list of Links from the posts object   */}
+          {posts.map(item=>(
+            <li key={item.path}>
+              <Link href={item.path}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     )
